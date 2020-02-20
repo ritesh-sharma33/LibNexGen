@@ -1,0 +1,25 @@
+RaisedButton(
+                          color: Colors.orangeAccent,
+                          child: Text("Submit"),
+                          onPressed: () {
+                            Firestore
+                              .instance
+                              .collection('checkinout')
+                              .where('student', isEqualTo: this.studentPath)
+                              .where('outTime', isEqualTo: null)
+                              .getDocuments()
+                              .then((docs) {
+                                this.idOfCurrentCheckOut = docs.documents[0].documentID;
+                              })
+                              .catchError((error) {
+                                print(error);
+                              });
+                            
+                            Firestore.instance
+                              .collection('checkinout')
+                              .document(this.idOfCurrentCheckOut)
+                              .updateData({
+                                'outTime': DateTime.now()
+                              });
+                          },
+                        )
