@@ -53,6 +53,8 @@ flutter:
     - assets/images/kiit-logo.png
     - assets/images/kiit2.jpg
     - assets/images/kiit-library.jpeg
+    - assets/images/reading_room.jpg
+    - assets/images/library.jpg
   
   fonts:
     - family: Poppins
