@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:qr_code/pages/circulation_center_page.dart';
+import 'package:qr_code/pages/reading_room_page.dart';
 
 class HomePageBody extends StatelessWidget {
 
@@ -10,7 +12,10 @@ class HomePageBody extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
         child: InkWell(
             onTap: () {
-
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ReadingRoomPage())
+              );
             },
             child: Stack(
               children: <Widget>[
@@ -54,7 +59,12 @@ class HomePageBody extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
         child: InkWell(
           onTap: () {
-
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CirculationCenterPage()
+              )
+            );
           },
           child: Stack(
             children: <Widget>[

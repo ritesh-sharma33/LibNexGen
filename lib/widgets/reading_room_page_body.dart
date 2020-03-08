@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './card_row.dart';
+import './reading_room_card_rows.dart';
 
 class ReadingRoomPageBody extends StatelessWidget {
 
