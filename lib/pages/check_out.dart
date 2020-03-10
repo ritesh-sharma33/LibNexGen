@@ -65,9 +65,6 @@ class _CheckOutState extends State<CheckOut> {
       fontWeight: FontWeight.w400
     );
 
-    final subHeaderTextStyle = regularTextStyle.copyWith(
-      fontSize: 12.0
-    );
 
     return Scaffold(
       body: Container(

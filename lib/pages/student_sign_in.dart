@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import '../pages/check_in.dart';
 
@@ -88,9 +87,6 @@ class _StudentSignInPageState extends State<StudentSignInPage> {
       fontWeight: FontWeight.w400
     );
 
-    final subHeaderTextStyle = regularTextStyle.copyWith(
-      fontSize: 12.0
-    );
 
     return Container(
         width: deviceWidth * 0.75,
@@ -151,7 +147,6 @@ class _StudentSignInPageState extends State<StudentSignInPage> {
   @override
   Widget build(BuildContext context) {
 
-    final double deviceHeight = MediaQuery.of(context).size.height;
     final double deviceWidth = MediaQuery.of(context).size.width;
 
     final baseTextStyle = const TextStyle(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import '../pages/check_in.dart';
 import '../pages/query_page.dart';
@@ -89,9 +88,6 @@ class _ShowRecordsPageState extends State<ShowRecordsPage> {
       fontWeight: FontWeight.w400
     );
 
-    final subHeaderTextStyle = regularTextStyle.copyWith(
-      fontSize: 12.0
-    );
 
     return Container(
         width: deviceWidth * 0.75,

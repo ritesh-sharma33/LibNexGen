@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code/widgets/gradient_appbar.dart';
 import 'package:qr_code/widgets/home_page_body.dart';
-import './widgets/reading_room_page_body.dart';
 
 class HomeScreen extends StatelessWidget {
   

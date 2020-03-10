@@ -20,16 +20,16 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.2
-  path_provider: 0.4.1
-  barcode_scan: 1.0.0
+  path_provider:
+  barcode_scan:
 
 
 
 
-  qr_flutter: ^2.0.0
-  http: 0.12.0+2
-  cloud_firestore: ^0.12.9
-  mock_cloud_firestore: 0.0.11
+  qr_flutter:
+  http:
+  cloud_firestore:
+  mock_cloud_firestore:
 
 dev_dependencies:
   flutter_test:

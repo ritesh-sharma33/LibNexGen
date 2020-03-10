@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/student.dart';
 import './profile_page.dart';
 
 class QueryPage extends StatefulWidget {
@@ -39,7 +38,7 @@ class _QueryPageState extends State<QueryPage> {
     });
   }
 
-  Container _buildBody() {
+  _buildBody() {
     if (widget.query == 'all-students-in') {
       return Container(
         child: StreamBuilder(
