@@ -53,20 +53,25 @@ class _QueryPageState extends State<QueryPage> {
               return ListView.builder(
                 itemCount: snapshot.data.documents.length,
                 itemBuilder: (context, index) {
-                  return new ListTile(
-                    leading: Icon(Icons.insert_emoticon),
-                    trailing: Text(snapshot.data.documents[index]['rollNo']),
-                    title: FlatButton(
-                      child: Text(snapshot.data.documents[index]['name']),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProfilePage()
-                          )
-                        );
-                      },
-                    )
+                  return Column(
+                    children: <Widget>[
+                      new ListTile(
+                        leading: Icon(Icons.insert_emoticon),
+                        trailing: Text(snapshot.data.documents[index]['rollNo']),
+                        title: FlatButton(
+                          child: Text(snapshot.data.documents[index]['name']),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProfilePage()
+                              )
+                            );
+                          },
+                        )
+                      ),
+                      new Divider()
+                    ],
                   );
                 },
               );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code/pages/circulation_center_page.dart';
 import 'package:qr_code/pages/reading_room_page.dart';
+import 'package:qr_code/widgets/slide_routing_animation.dart';
 
 class HomePageBody extends StatelessWidget {
 
@@ -51,24 +52,6 @@ class HomePageBody extends StatelessWidget {
     );
   }
 
-  Route _createCirculationPageRoute() {
-    return PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => CirculationCenterPage(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          var begin = Offset(0.0, 1.0);
-          var end = Offset.zero;
-          var curve = Curves.ease;
-
-          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-          return SlideTransition(
-            position: animation.drive(tween),
-            child: child,
-          );
-        }
-      );
-  }
-
   Widget _buildLibraryCard(BuildContext context) {
     final double deviceHeight = MediaQuery.of(context).size.height;
     return SizedBox(
@@ -77,7 +60,7 @@ class HomePageBody extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
         child: InkWell(
           onTap: () {
-            Navigator.of(context).push(_createCirculationPageRoute());
+            Navigator.push(context, SlideRoutingAnimation(page: CirculationCenterPage()));
           },
           child: Stack(
             children: <Widget>[

@@ -90,7 +90,7 @@ class _StudentSignOutStatePage extends State<StudentSignOutPage> {
 
     return Container(
         width: deviceWidth * 0.75,
-        margin: EdgeInsets.only(top: deviceHeight * 0.6, left: deviceWidth * 0.125),
+        margin: EdgeInsets.only(top: deviceHeight * 0.55, left: deviceWidth * 0.125),
         child: Column(
           children: <Widget>[
             InkWell(
@@ -139,6 +139,8 @@ class _StudentSignOutStatePage extends State<StudentSignOutPage> {
               )
               :
               SizedBox(),
+              SizedBox(height: deviceHeight * 0.175,),
+              Text("© Copyright-2020 LibNexGen")
           ]
         )
       );

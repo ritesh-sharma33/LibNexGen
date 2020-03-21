@@ -89,8 +89,11 @@ class _StudentSignInPageState extends State<StudentSignInPage> {
 
 
     return Container(
-        width: deviceWidth * 0.75,
-        margin: EdgeInsets.only(top: deviceHeight * 0.55, left: deviceWidth * 0.125),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10)
+        ),
+        width: deviceWidth * 0.8,
+        margin: EdgeInsets.only(top: deviceHeight * 0.575, left: deviceHeight * 0.05),
         child: Column(
           children: <Widget>[
             InkWell(
@@ -133,7 +136,9 @@ class _StudentSignInPageState extends State<StudentSignInPage> {
                   )
                 );
               },
-            ) : SizedBox()
+            ) : SizedBox(),
+            SizedBox(height: deviceHeight * 0.175,),
+            Text("© Copyright-2020 LibNexGen")
           ]
         )
       );

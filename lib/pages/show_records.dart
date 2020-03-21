@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import '../pages/check_in.dart';
 import '../pages/query_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ShowRecordsPage extends StatefulWidget {
   @override
@@ -15,6 +16,8 @@ class _ShowRecordsPageState extends State<ShowRecordsPage> {
 
   String barcode = '';
   bool isScanned = false;
+
+  static int noOfStudentsIn;
 
   Future scanForIn() async {
     try {
@@ -66,6 +69,14 @@ class _ShowRecordsPageState extends State<ShowRecordsPage> {
     );
   }
 
+  void _getNoOfStudentsIn() async {
+    noOfStudentsIn = await Firestore.instance
+      .collection('students')
+      .where("isIn", isEqualTo: true)
+      .snapshots()
+      .length;
+  }
+
   Widget _getActionsWidgets(BuildContext context) {
 
     final double deviceHeight = MediaQuery.of(context).size.height;
@@ -96,7 +107,6 @@ class _ShowRecordsPageState extends State<ShowRecordsPage> {
           children: <Widget>[
             InkWell(
               child: RaisedButton(
-                elevation: 5,
                 color: Colors.green,
                 child: Row(
                   children: <Widget>[
@@ -142,6 +152,7 @@ class _ShowRecordsPageState extends State<ShowRecordsPage> {
 
   @override
   void initState() {
+    _getNoOfStudentsIn();
     super.initState();
   }
 
@@ -214,29 +225,25 @@ class _ShowRecordsPageState extends State<ShowRecordsPage> {
             _getToolbar(context),
             Container(
               margin: EdgeInsets.only(top: deviceHeight * 0.5),
-              child: ListView( 
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: deviceWidth * 0.1),
-                  child: Column(
-                    children: <Widget>[
-                      RaisedButton(
-                        color: Colors.green,
-                        child: Text('Students who are in'),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => QueryPage("all-students-in")
-                            )
-                          );
-                        },
-                      ),
-                    ],
-                  ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: deviceWidth * 0.1),
+                child: ListView(
+                  children: <Widget>[
+                    ListTile(
+                      title: Text("Students who are in"),
+                      trailing: Text(noOfStudentsIn.toString()),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => QueryPage('all-students-in')
+                          )
+                        );
+                      },
+                    )
+                  ],
                 ),
-              ],
-            ),
+              ),
             ),
           ]
         ),
